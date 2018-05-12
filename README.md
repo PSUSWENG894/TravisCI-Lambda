@@ -1,4 +1,4 @@
-# H1 SWENG894 Group 3 Project 
+# SWENG894 Group 3 Project 
 * Communication Mechanisms:
   * Slack (General Communication),
   * PSU Group (Official Cource Chat),
