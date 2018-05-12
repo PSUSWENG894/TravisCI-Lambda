@@ -3,13 +3,10 @@
   * Slack (General Communication),
   * PSU Group (Official Cource Chat),
   * Slack or Google Hangouts (Video Conferencing)
-* Scrum Master: TBD
+* Scrum Master: Joseph Payne
 * Mission Statement: To Build an Alexa Skill for Continuous Integration
-* Programming Language: JavaScript or Python
+* Programming Language: Go
 * Select Tool Set:
   * Source Code Repository: Git
     * Additional Tools: Git Kraken, Git Desktop etc.,
-  * Compiler: TBD
-  * IDE: Atom
-  * Test Framework: TBD
-  * Configuration Management: TBD
+  * Tool Suite: AWS Alexa Skill Kits
