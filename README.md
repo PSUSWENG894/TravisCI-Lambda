@@ -2,7 +2,7 @@
 * Communication Mechanisms:
   * Slack (General Communication),
   * PSU Group (Official Cource Chat),
-  * Slack or Google Hangouts (Video Conferencing)
+  * PSU Conferences, meeting.psu.edu, or Google Hangouts
 * Scrum Master: Joseph Payne
 * Mission Statement: To Build an Alexa Skill for Continuous Integration
 * Programming Language: Go
