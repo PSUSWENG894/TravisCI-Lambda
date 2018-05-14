@@ -1,4 +1,5 @@
 # SWENG894 Group 3 Project: CI Alexa Skill 
+* Planning Meeting: Every Monday 8PM-10PM EST (7PM-9PM CST)
 * Communication Mechanisms:
   * Slack (General Communication),
   * PSU Group (Official Cource Chat),
