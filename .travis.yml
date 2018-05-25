@@ -5,3 +5,5 @@ go:
   - "1.8"
   - "1.10.x"
   - master
+
+go_import_path: Group3/mrc5163/stringutil
