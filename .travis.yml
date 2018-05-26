@@ -1,9 +1,23 @@
-language: go
+matrix:
+  include:
+    - language: go
+      go:
+        - "1.x"
+        - "1.8"
+        - "1.10.x"
+        - master
+      before_script:
+        - cd Group3/mrc5163/stringutil
+      script:
+        - go test
 
-go:
-  - "1.x"
-  - "1.8"
-  - "1.10.x"
-  - master
-
-go_import_path: Group3/mrc5163/stringutil
+    - language: node_js
+      node_js:
+        - "node"
+        - "iojs"
+      install:
+        - npm install -g codecov
+      script:
+        - npm install
+        - npm run test
+        - codecov
