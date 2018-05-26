@@ -1,20 +1,12 @@
 matrix:
   include:
-    - language: go
-      go:
-        - "1.x"
-        - "1.8"
-        - "1.10.x"
-        - master
-      before_script:
-        - cd Group3/mrc5163/stringutil
-      script:
-        - go test
 
     - language: node_js
       node_js:
         - "node"
         - "iojs"
+      before_script:
+        - cd target-app/front-end
       install:
         - npm install -g codecov
       script:
