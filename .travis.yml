@@ -11,5 +11,6 @@ matrix:
         - npm install -g codecov
       script:
         - npm install
+        - npm run build
         - npm run test
         - codecov
