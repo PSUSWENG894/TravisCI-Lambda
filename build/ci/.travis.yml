@@ -1,0 +1,13 @@
+go:
+  - "1.10.x"
+
+deploy:
+  provider: lambda
+  function_name: "lambda-test"
+  region: "us-east-1"
+  role: "arn:aws:iam::878620859533:role/lambda-test-role"
+  runtime: "go1.x"
+  module_name: "hello/hello"
+  handler_name: "HandleRequest"
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
