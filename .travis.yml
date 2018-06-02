@@ -3,9 +3,9 @@ go:
 
 deploy:
   provider: lambda
-  function_name: "lambda-test"
+  function_name: "Alexa-travisci-skill"
   region: "us-east-1"
-  role: "arn:aws:iam::878620859533:role/lambda-test-role"
+  role: "arn:aws:iam::664183912372:role/travis-deploy-lambda"
   runtime: "go1.x"
   module_name: "hello/hello"
   handler_name: "HandleRequest"
