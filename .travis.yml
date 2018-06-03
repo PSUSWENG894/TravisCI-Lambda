@@ -3,11 +3,12 @@ matrix:
     - language: go
       go:
         - "1.10.x"
-      before_script:
-        - cd mrc5163/sumation
       script:
+        - cd mrc5163/sumation
         - go build
         - go test -v -cover
+        - cd ../../internal/pkg/travis
+        - go build
   
 #deploy:
 #  provider: lambda
