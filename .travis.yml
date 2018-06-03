@@ -1,14 +1,13 @@
-language: go
-
-go:
-  - "1.10.x"
-
-before_script:
-  cd mrc5163/sumation
-  
-script:
-  go build
-  go test -v -cover
+matrix:
+  include:
+    - language: go
+      go:
+        - "1.10.x"
+      before_script:
+        - cd mrc5163/sumation
+      script:
+        - go build
+        - go test -v -cover
   
 #deploy:
 #  provider: lambda
