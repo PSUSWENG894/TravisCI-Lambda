@@ -7,7 +7,7 @@ matrix:
         - cd mrc5163/sumation
         - go build
         - go test -v -cover
-        - cd ../../internal/pkg/travis
+        - cd ../../alexa-skill/internal/pkg/travis
         - go build
   
 #deploy:
