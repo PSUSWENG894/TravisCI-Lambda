@@ -15,10 +15,10 @@ func TestSumTable(t *testing.T) {
 		y int
 		n int
 	}{
-		{1, 1, 1},
-		{1, 2, 2},
+		{1, 1, 2},
+		{1, 2, 3},
 		{2, 2, 4},
-		{5, 2, 10},
+		{5, 2, 7},
 	}
 
 	for _, table := range tables {
