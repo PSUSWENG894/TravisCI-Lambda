@@ -9,7 +9,6 @@ matrix:
         - go test -v -cover
         - cd ../../alexa-skill/internal/pkg/travis
         - go build
-        - echo "BUILD COMPLETE!!!!!"
   
 deploy:
   provider: lambda
@@ -21,3 +20,4 @@ deploy:
   handler_name: "HandleRequest"
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
+  verbose: true
