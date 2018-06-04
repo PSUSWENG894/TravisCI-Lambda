@@ -9,6 +9,7 @@ matrix:
         - go test -v -cover
         - cd ../../alexa-skill/internal/pkg/travis
         - go build
+        - echo "BUILD COMPLETE!!!!!"
   
 deploy:
   provider: lambda
