@@ -1,21 +1,22 @@
-language: go
-
-go:
-  - "1.10.x"
-
-before_script:
-  cd mrc5163/sumation
+matrix:
+  include:
+    - language: go
+      go:
+        - "1.10.x"
+      script:
+        - cd mrc5163/sumation
+        - go build
+        - go test -v -cover
+        - cd ../../alexa-skill/internal/pkg/travis
+        - go build
   
-script:
-  go build test -v -cover
-  
-#deploy:
-#  provider: lambda
-#  function_name: "Alexa-travisci-skill"
-#  region: "us-east-1"
-#  role: "arn:aws:iam::664183912372:role/travis-deploy-lambda"
-#  runtime: "go1.x"
-#  module_name: "hello/hello"
-#  handler_name: "HandleRequest"
-#  access_key_id: $AWS_ACCESS_KEY_ID
-#  secret_access_key: $AWS_SECRET_ACCESS_KEY
+deploy:
+  provider: lambda
+  function_name: "Alexa-travisci-skill"
+  region: "us-east-1"
+  role: "arn:aws:iam::664183912372:role/travis-deploy-lambda"
+  runtime: "go1.x"
+  module_name: "alexa-skill/internal/pkg/travis"
+  handler_name: "HandleRequest"
+  access_key_id: "AKIAJI2AILVTDCY6H27Q"
+  secret_access_key: "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"
