@@ -18,5 +18,5 @@ deploy:
   runtime: "go1.x"
   module_name: "alexa-skill/internal/pkg/travis"
   handler_name: "HandleRequest"
-  access_key_id: "AKIAJI2AILVTDCY6H27Q"
-  secret_access_key: "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"
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
