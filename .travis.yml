@@ -7,8 +7,8 @@ matrix:
         - cd mrc5163/sumation
         - go build
         - go test -v -cover
-        - cd ../../pkg/travis
-        - go build
+#        - cd ../../pkg/travis
+#        - go build
   
 deploy:
   provider: lambda
