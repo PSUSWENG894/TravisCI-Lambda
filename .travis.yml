@@ -10,7 +10,7 @@ matrix:
         - cd ../../pkg/travis
         - go build
         - cd ../..
-        - go build main
+        - go build main.go
   
 deploy:
   provider: lambda
