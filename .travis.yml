@@ -9,6 +9,8 @@ matrix:
         - go test -v -cover
         - cd ../../pkg/travis
         - go build
+        - cd ../..
+        - go build
   
 deploy:
   provider: lambda
@@ -16,7 +18,8 @@ deploy:
   region: "us-east-1"
   role: "arn:aws:iam::664183912372:role/travis-deploy-lambda"
   runtime: "go1.x"
-  module_name: "alexa-skill/internal/pkg/travis"
+  #module_name: "alexa-skill/internal/pkg/travis"
+  module_name: "main"
   handler_name: "HandleRequest"
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
