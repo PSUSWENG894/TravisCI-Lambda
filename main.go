@@ -11,7 +11,7 @@ type MyEvent struct {
 	Name string `json: "name"`
 }
 
-func HandleRequest(ctx context.Context, name MyEvent) (string, error) {
+func AlexaTravisCISkill(ctx context.Context, name MyEvent) (string, error) {
     log.Print("Handling event " + name.Name)
     return fmt.Sprintf("Hello %s!", name.Name), nil
 }

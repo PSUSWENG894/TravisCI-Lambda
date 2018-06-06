@@ -15,13 +15,13 @@ matrix:
   
 deploy:
   provider: lambda
-  function_name: "Alexa-travisci-skill"
+  function_name: "AlexaTravisCISkill"
   region: "us-east-1"
   role: "arn:aws:iam::664183912372:role/travis-deploy-lambda"
   runtime: "go1.x"
   #module_name: "alexa-skill/internal/pkg/travis"
   module_name: "main"
-  handler_name: "HandleRequest"
+  handler_name: "AlexaTravisCISkill"
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   verbose: true
