@@ -11,6 +11,7 @@ matrix:
         - go build
         - cd ../..
         - go build main.go
+        - ls
   
 deploy:
   provider: lambda
