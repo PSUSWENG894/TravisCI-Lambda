@@ -22,5 +22,5 @@ func saveCurrentUser(user string) string {
 
 func main() {
     fmt.Printf("Hello, world!\n")
-    lambda.Start(HandleRequest)
+    lambda.Start(AlexaTravisCISkill)
 }
