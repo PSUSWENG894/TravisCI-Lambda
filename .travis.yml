@@ -9,7 +9,7 @@ matrix:
         - go test -v -cover
         - cd ../../pkg/travis
         - go build
-        - cd ../..
+        - cd ../../src
         - go build main.go
         - ls
   
@@ -20,7 +20,7 @@ deploy:
   role: "arn:aws:iam::664183912372:role/travis-deploy-lambda"
   runtime: "go1.x"
   #module_name: "alexa-skill/internal/pkg/travis"
-  module_name: "main"
+  module_name: "src/main"
   handler_name: "AlexaTravisCISkill"
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
