@@ -12,6 +12,7 @@ type MyEvent struct {
 }
 
 func AlexaTravisCISkill(ctx context.Context, name MyEvent) (string, error) {
+	fmt.Printf("Hello, world!\n")
     log.Print("Handling event " + name.Name)
     return fmt.Sprintf("Hello %s!", name.Name), nil
 }

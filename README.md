@@ -11,3 +11,5 @@
   * Source Code Repository: Git
     * Additional Tools: Git Kraken, Git Desktop etc.,
   * Tool Suite: AWS Alexa Skill Kits
+
+Alexa, ask travis ci to set my user to {current_user}
