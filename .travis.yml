@@ -11,7 +11,8 @@ matrix:
         - go build
         - cd ../../src
         - go build main.go
-        - zip travislambda.zip
+        - cd ../..
+        - zip -r travislambda.zip TravisCI-Lambda
   
 deploy:
   provider: lambda
