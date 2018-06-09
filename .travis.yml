@@ -6,13 +6,8 @@ matrix:
       before_install:
         - go get -v github.com/aws/aws-lambda-go/lambda
       script:
-        - cd mrc5163/sumation
-        - go build
-        - go test -v -cover
-        - cd ../../pkg/travis
-        - go build
-        - cd ../../src
-        - go build -o main.go
+        - cd src
+        - go build main.go
         - cd ../..
         - zip -r travislambda.zip TravisCI-Lambda
   
@@ -23,9 +18,9 @@ deploy:
   role: "arn:aws:iam::664183912372:role/travis-deploy-lambda"
   runtime: "go1.x"
   #module_name: "alexa-skill/internal/pkg/travis"
-  module_name: "src/main"
+  module_name: "TravisCI-Lambda/src/main"
   handler_name: "AlexaTravisCISkill"
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   verbose: true
-  zip: travislambda.zip
+  zip: TravisCI-Lambda.zip
