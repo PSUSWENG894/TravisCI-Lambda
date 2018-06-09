@@ -3,6 +3,8 @@ matrix:
     - language: go
       go:
         - "1.10.x"
+      before_install:
+        - go get -v github.com/aws/aws-lambda-go/lambda
       script:
         - cd mrc5163/sumation
         - go build
