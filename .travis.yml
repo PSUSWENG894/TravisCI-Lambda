@@ -10,7 +10,7 @@ matrix:
         - cd ../../pkg/travis
         - go build
         - cd ../../src
-        - go build main.go
+        - go build -o main.go
         - cd ../..
         - zip -r travislambda.zip TravisCI-Lambda
   
