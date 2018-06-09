@@ -3,7 +3,6 @@ package travis
 import (
 	"time"
 	"encoding/json"
-	"fmt"
 	"strconv"
 	"io/ioutil"
 )
@@ -99,10 +98,10 @@ type BuildsResponse struct {
 	} `json:"builds"`
 }
 
-func BuildsInfo(urlPrefix string, repoSlug string, limit int, apiToken string){
-	url := urlPrefix + "repo/"+ repoSlug+ "builds?limit=" + strconv.Itoa(limit)
+func BuildsInfo(limit int, client *Client) (BuildsResponse){
+	url := client.baseURL+ "/repo/"+ client.repoSlug + "builds?limit=" + strconv.Itoa(limit)
 
-	response := ApiGet(url, apiToken)
+	response := ApiGet(url, client)
 
 	body, _ := ioutil.ReadAll(response.Body)
 	var responseStruct BuildsResponse
@@ -114,14 +113,11 @@ func BuildsInfo(urlPrefix string, repoSlug string, limit int, apiToken string){
 		panic(err)
 	}
 
-	handleBuildInfoResponse(responseStruct)
+	DumpResponse(response, body)
+
+	return responseStruct
 }
 
-func handleBuildInfoResponse(responseStruct BuildsResponse){
-	//This just prints one of the fields from the response to
-	//see if it unmarshalled properly
-	fmt.Println("Latest Build ID: " , responseStruct.Builds[0].ID)
-}
 
 
 

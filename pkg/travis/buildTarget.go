@@ -1,7 +1,6 @@
 package travis
 
 import (
-	"fmt"
 	"io/ioutil"
 	"encoding/json"
 	"net/http"
@@ -55,7 +54,7 @@ type ResponseBody struct {
 }
 
 //trigger a TravisCI build
-func Build(repoSlug string, buildBranch string , message string, apiToken string, envVars []string){
+func Build(client *Client, buildBranch string , message string,  envVars []string) (ResponseBody){
 	reqBody := RequestBody{}
 
 	//set the variables
@@ -83,15 +82,14 @@ func Build(repoSlug string, buildBranch string , message string, apiToken string
 	 */
 
 	//build the POST request
-	req, _ := http.NewRequest("POST","https://api.travis-ci.org/repo/" +repoSlug+ "requests" , bytes.NewReader(jsonRequest))
+	req, _ := http.NewRequest("POST","https://api.travis-ci.org/repo/" + client.repoSlug + "requests" , bytes.NewReader(jsonRequest))
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("Travis-API-Version", "3")
-	req.Header.Set("Authorization", "token " +apiToken)
+	req.Header.Set("Authorization", "token " + client.apiToken)
 
 	//execute the request
-	client := &http.Client{}
-	resp, err := client.Do(req)
+	resp, err := client.httpClient.Do(req)
 
 	//handle errors
 	if err != nil {
@@ -100,13 +98,12 @@ func Build(repoSlug string, buildBranch string , message string, apiToken string
 
 	defer resp.Body.Close()
 
-	handleBuildResponse(resp)
+	return handleBuildResponse(resp)
 }
 
-func handleBuildResponse(response *http.Response) {
+func handleBuildResponse(response *http.Response) (ResponseBody){
 	body, _ := ioutil.ReadAll(response.Body)
 
-	//unmarshall the response body and print the id to prove it worked
 	var responseBody ResponseBody
 	err := json.Unmarshal(body, &responseBody)
 
@@ -114,8 +111,6 @@ func handleBuildResponse(response *http.Response) {
 		panic(err)
 	}
 
-	//This just prints one of the fields from the response to
-	//see if it unmarshalled properly
-	fmt.Println("ID: ", responseBody.Request.ID)
+	return responseBody;
 }
 
